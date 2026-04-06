@@ -100,6 +100,13 @@ int main(int argc, char* argv[]) {
     }
 
     std::ofstream out(out_name);
+
+    out << "// C calling convension defines for C--\n";
+    out << "#define __stdcall stdcall\n";
+    out << "#define __cdecl cdecl\n";
+    out << "#define __STDCALL stdcall\n";
+    out << "#define __CDECL cdecl\n";
+    
     for (const auto& l : lines) {
         out << l << "\n";
     }
