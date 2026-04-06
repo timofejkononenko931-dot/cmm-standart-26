@@ -3,6 +3,7 @@
 #include <string>
 #include <filesystem>
 #include <algorithm>
+#include <cstdlib>
 
 namespace fs = std::filesystem;
 
@@ -66,6 +67,8 @@ int main(int argc, char* argv[]) {
         std::cout << "Usage: hfix <file.h> or <file.h-->\n";
         return 1;
     }
+
+    std::system("cls");
 
     for (int i = 1; i < argc; i++) {
         fs::path input_path(argv[i]);
