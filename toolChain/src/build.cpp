@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <regex>
 #include <sstream>
+#include <cstdlib>
 
 namespace fs = std::filesystem;
 
@@ -69,6 +70,8 @@ int main(int argc, char* argv[]) {
         std::cout << "Usage: builder <make.ini> <file.c-->" << std::endl;
         return 1;
     }
+
+    std::system("cls");
 
     std::cout << "\033[36m"; 
     std::cout << R"(
