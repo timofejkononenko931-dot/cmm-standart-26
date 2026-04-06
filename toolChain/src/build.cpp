@@ -43,7 +43,7 @@ std::string apply_smart_slashes(const std::string& input) {
         }
 
         if (in_macro) {
-            /
+            
             for (char c : line) {
                 if (c == '{') brace_depth++;
                 if (c == '}') brace_depth--;
