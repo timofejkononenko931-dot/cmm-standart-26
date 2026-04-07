@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
   if (argc <= 1) {
-    cout << "for using this compiler\n" << "c--_26 <file make.ini> <empty or file.c-->;
+    cout << "for using this compiler\n" << "c--_26 <file make.ini or file> <empty or file.c--";
   }
 
   if (argc == 2) {
