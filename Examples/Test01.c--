@@ -1,1 +1,17 @@
+typedef unsigned int uint32_t;
+typedef struct {
+    uint32_t ValidationLayerNumber;
+} roflVulkan;
 
+extern int __stdcall intFunc();
+extern int __cdecl func();
+
+#define ValeyNumb(a) {
+    ValidationLayerNumber = a;
+}
+
+
+int main() {
+    ValeyNumb(0)
+    return 0;
+}
