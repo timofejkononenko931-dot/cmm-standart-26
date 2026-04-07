@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include <filesystem>
+#include <cstdlib>
 
 namespace fs = std::filesystem;
 
@@ -58,6 +59,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    std::system("cls");
     
     std::cout << "\033[36m" << R"(
   _____________________________________________________________
@@ -106,6 +108,8 @@ int main(int argc, char* argv[]) {
     out << "#define __cdecl cdecl\n";
     out << "#define __STDCALL stdcall\n";
     out << "#define __CDECL cdecl\n";
+    out << "#define __Stdcall stdcall\n";
+    out << "#define __Cdecl cdecl\n";
     
     for (const auto& l : lines) {
         out << l << "\n";
