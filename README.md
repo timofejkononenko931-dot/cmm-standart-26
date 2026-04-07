@@ -11,7 +11,7 @@ for use in terminal:
 
 t26 <file.h|file.h--|file.c-->
 
-cmm26 - utilit for .c-- files, this utilit include typedef and C defines
+# cmm26 - utilit for .c-- files, this utilit include typedef and C defines
 example:
 
 typedef float myFloat;
@@ -28,16 +28,16 @@ typedef struct {
 
 for use in terminal:
 
-cmm26 <make.ini> <file.c-->
+# cmm26 <make.ini> <file.c-->
 
 
-hmm26 - utilit for .h/.h-- files, this utilit like cmm26 but for include files
+#hmm26 - utilit for .h/.h-- files, this utilit like cmm26 but for include files
 
 for use in terminal:
-hmm26 <include file.h/h-->
+# hmm26 <include file.h/h-->
 
 
-path notes 01:
+# path notes 01:
 in t26 include C calling convension, this is:
 __stdcall
 __cdecl
@@ -45,3 +45,7 @@ __cdecl
 example:
 
 extern int __stdcall intFunc();
+
+# c--_26
+
+c--_26 is include 3 utilit and auto enable this utilit
