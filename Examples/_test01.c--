@@ -1,0 +1,17 @@
+//this is fixed ver(this fixed like c--_26)
+#define uint32_t {unsigned int}
+struct {
+    uint32_t ValidationLayerNumber;
+} roflVulkan;
+
+extern int stdcall intFunc();
+extern int cdecl func();
+
+#define ValeyNumb(a) {\
+    ValidationLayerNumber = a;\
+}
+
+int main() {
+  ValeyNumb(0)
+  return 0;
+}
