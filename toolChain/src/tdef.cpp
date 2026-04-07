@@ -117,7 +117,6 @@ int main(int argc, char* argv[]) {
     out << "#define __STDCall stdcall\n";
     out << "#define __CDECl cdecl\n";
     out << "#define __STDCAll stdcall\n";
-    out << "#define LongLong {asm{qword};}";
     
     for (const auto& l : lines) {
         out << l << "\n";
