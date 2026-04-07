@@ -7,7 +7,7 @@ extern int __stdcall intFunc();
 extern int __cdecl func();
 
 #define ValeyNumb(a) {
-    ValidationLayerNumber = a;
+    roflVulkan.ValidationLayerNumber = a;
 }
 
 
