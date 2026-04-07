@@ -110,6 +110,13 @@ int main(int argc, char* argv[]) {
     out << "#define __CDECL cdecl\n";
     out << "#define __Stdcall stdcall\n";
     out << "#define __Cdecl cdecl\n";
+    out << "#define __STdcall stdcall\n";
+    out << "#define __CDecl cdecl\n";
+    out << "#define __STDcall stdcall\n";
+    out << "#define __CDEcl cdecl\n";
+    out << "#define __STDCall stdcall\n";
+    out << "#define __CDECl cdecl\n";
+    out << "#define __STDCAll stdcall\n";
     
     for (const auto& l : lines) {
         out << l << "\n";
