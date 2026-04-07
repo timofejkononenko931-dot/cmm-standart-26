@@ -15,6 +15,7 @@ cmm26 - utilit for .c-- files, this utilit include typedef and C defines
 example:
 
 typedef float myFloat;
+
 typedef struct {
 
 }my struct;
@@ -34,3 +35,13 @@ hmm26 - utilit for .h/.h-- files, this utilit like cmm26 but for include files
 
 for use in terminal:
 hmm26 <include file.h/h-->
+
+
+path notes 01:
+in t26 include C calling convension, this is:
+__stdcall
+__cdecl
+
+example:
+
+extern int __stdcall intFunc();
