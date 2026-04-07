@@ -10,17 +10,17 @@ int main(int argc, char* argv[]) {
   }
 
   if (argc == 2) {
-    std::string cmdt26 = "t26 " + argv[1];
+    std::string cmdt26 = std::string("t26 ") + argv[1];
     std::system(cmdt26.c_str());
 
-    std::string cmdh = "hmm26 " + "_" + argv[1];
+    std::string cmdh = std::string("hmm26 ") + "_" + argv[1];
     std::system(cmdh.c_str());
     
   } else if (argc == 3) {
-    std::string cmdt26 = "t26 " + argv[2];
+    std::string cmdt26 = std::string("t26 ") + argv[2];
     std::system(cmdt26.c_str());
 
-    std::string cmdcmm = "cmm26 " + argv[1] + " _" + argv[2];
+    std::string cmdcmm = std::string("cmm26 ") + argv[1] + " _" + argv[2];
     std::system(cmdcmm.c_str());
     
   } else {
