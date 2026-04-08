@@ -174,7 +174,6 @@ int main(int argc, char* argv[]) {
     out << "#define __STDCAll stdcall\n";
 
     out << "#pragma option IA\n";
-    out << "#define __attribute__((aligned(n))) {align [n]}\n";
     out << "#define __attribute__ {#define }\n";
     out << "#define __addr__ {#define }\n";
     out << "#define volatile\n";
