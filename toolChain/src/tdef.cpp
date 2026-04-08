@@ -8,6 +8,8 @@
 
 namespace fs = std::filesystem;
 
+bool g_in_enum = false;
+std::string g_current_enum_name = "";
 
 std::string transform_line(std::string line, bool& should_rename) {
     std::string trimmed = line;
