@@ -130,7 +130,7 @@ int main(int argc, char* argv[]) {
     out << "#define __addr__ {#define }\n";
     out << "#define volatile\n";
 
-    out << "Made with c--_26\n";
+    out << "//Made with c--_26 by tipoCrutoi228(timoxa)\n";
     out << "\n";
     
     for (const auto& l : lines) {
