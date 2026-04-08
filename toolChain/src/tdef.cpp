@@ -23,7 +23,7 @@ std::string transform_line(std::string line, bool& should_rename) {
             return result;
         }
         if (trimmed.find("enum") != std::string::npos) {
-            size_t pos2 =bline.find("typedef");
+            size_t pos2 = line.find("typedef");
             std::string res2 = line;
             res2.erase(pos2,8);
             return res2;
