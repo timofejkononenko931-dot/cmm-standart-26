@@ -140,7 +140,7 @@ int main(int argc, char* argv[]) {
     std::vector<std::string> lines;
     std::ifstream in(argv[1]);
     std::string line;
-    bool needs_special_name = false;
+    bool needs_special_name = true;
 
     
     while (std::getline(in, line)) {
