@@ -15,18 +15,52 @@ std::string transform_line(std::string line, bool& should_rename) {
     if (first == std::string::npos) return line;
     trimmed = trimmed.substr(first);
 
+    if (trimmed.find("enum") != std::string::npos) {
+        std::string result = line;
+        
+        size_t td_pos = result.find("typedef");
+        if (td_pos != std::string::npos) {
+            result.erase(td_pos, 8);
+        }
+
+        size_t close_brace = result.find('}');
+        if (close_brace != std::string::npos) {
+            size_t semi = result.find(';', close_brace);
+            if (semi != std::string::npos) {
+          
+                std::string tail = result.substr(close_brace + 1, semi - (close_brace + 1));
+                
+            
+                size_t f = tail.find_first_not_of(" \t\r\n");
+                size_t l = tail.find_last_not_of(" \t\r\n");
+                
+                if (f != std::string::npos) {
+                    std::string name = tail.substr(f, (l - f + 1));
+                    
+                   
+                    size_t enum_pos = result.find("enum");
+                    std::string head = result.substr(enum_pos + 4, close_brace - (enum_pos + 4));
+                    
+                    if (head.find(name) != std::string::npos) {
+                       
+                        result.erase(close_brace + 1, semi - (close_brace + 1));
+                    } else {
+                        
+                        result.erase(close_brace + 1, semi - (close_brace + 1)); 
+                        result.insert(enum_pos + 4, " " + name + " "); 
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
     if (trimmed.rfind("typedef ", 0) == 0) {
         if (trimmed.find("struct") != std::string::npos) {
             size_t pos = line.find("typedef");
             std::string result = line;
             result.erase(pos, 8); 
             return result;
-        }
-        if (trimmed.find("enum") != std::string::npos) {
-            size_t pos2 = line.find("typedef");
-            std::string res2 = line;
-            res2.erase(pos2,8);
-            return res2;
         }
 
         std::string content = trimmed.substr(8); 
