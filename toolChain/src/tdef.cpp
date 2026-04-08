@@ -16,6 +16,7 @@ std::string transform_line(std::string line, bool& should_rename) {
     trimmed = trimmed.substr(first);
 
     if (trimmed.find("enum") != std::string::npos) {
+        g_in_enum = true;
         std::string result = line;
         
         size_t td_pos = result.find("typedef");
@@ -23,38 +24,50 @@ std::string transform_line(std::string line, bool& should_rename) {
             result.erase(td_pos, 8);
         }
 
+        size_t enum_pos = result.find("enum");
+        std::string head = result.substr(enum_pos + 4);
+        size_t brace_open = head.find('{');
+        if (brace_open != std::string::npos) {
+            std::string potential_name = head.substr(0, brace_open);
+
+            size_t f = potential_name.find_first_not_of(" \t\r\n");
+            size_t l = potential_name.find_last_not_of(" \t\r\n");
+            if (f != std::string::npos) {
+                g_current_enum_name = potential_name.substr(f, l - f + 1);
+            }
+        }
+
         size_t close_brace = result.find('}');
         if (close_brace != std::string::npos) {
             size_t semi = result.find(';', close_brace);
             if (semi != std::string::npos) {
-          
-                std::string tail = result.substr(close_brace + 1, semi - (close_brace + 1));
-                
-            
-                size_t f = tail.find_first_not_of(" \t\r\n");
-                size_t l = tail.find_last_not_of(" \t\r\n");
-                
-                if (f != std::string::npos) {
-                    std::string name = tail.substr(f, (l - f + 1));
-                    
-                   
-                    size_t enum_pos = result.find("enum");
-                    std::string head = result.substr(enum_pos + 4, close_brace - (enum_pos + 4));
-                    
-                    if (head.find(name) != std::string::npos) {
-                       
-                        result.erase(close_brace + 1, semi - (close_brace + 1));
-                    } else {
-                        
-                        result.erase(close_brace + 1, semi - (close_brace + 1)); 
-                        result.insert(enum_pos + 4, " " + name + " "); 
-                    }
-                }
+                result.erase(close_brace + 1, semi - (close_brace + 1));
+                g_in_enum = false;
             }
         }
         return result;
     }
+    if (g_in_enum) {
+        size_t close_brace = line.find('}');
+        if (close_brace != std::string::npos) {
+            size_t semi = line.find(';', close_brace);
+            if (semi != std::string::npos) {
+                std::string result = line;
+            
+                result.erase(close_brace + 1, semi - (close_brace + 1));
+             
+                if (g_current_enum_name.empty()) {
+                    std::string tail = line.substr(close_brace + 1, semi - (close_brace + 1));
+                    
+                }
 
+                g_in_enum = false;
+                g_current_enum_name = "";
+                return result;
+            }
+        }
+        return line;
+    }
     if (trimmed.rfind("typedef ", 0) == 0) {
         if (trimmed.find("struct") != std::string::npos) {
             size_t pos = line.find("typedef");
