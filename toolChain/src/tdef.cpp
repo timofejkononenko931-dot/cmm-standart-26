@@ -195,14 +195,14 @@ int main(int argc, char* argv[]) {
         __popReg__}\n";
 
     out << "#define __attribute__regArg32(a,b,c,d) {
-        __saveReg__
+        __saveReg32__
         asm {
-            mov ax, [a]
-            mov bx, [b]
-            mov cx, [c]
-            mov dx, [d]
+            mov eax, [a]
+            mov ebx, [b]
+            mov ecx, [c]
+            mov edx, [d]
         };
-        __popReg__}\n";
+        __popReg32__}\n";
 
 
     out << "//Made with c--_26 by tipoCrutoi228(timoxa)\n";
