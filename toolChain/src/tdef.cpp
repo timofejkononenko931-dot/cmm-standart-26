@@ -183,6 +183,8 @@ int main(int argc, char* argv[]) {
     out << "#define __popReg__ {asm{popa};}\n";
     out << "#define __saveReg32__ {asm{pushad};}\n";
     out << "#define __popReg32__ {asm{popad};}\n";
+    out << "#define __argv16 {word}\n";
+    out << "#define __argv32 {dword}\n";
 
     out << "#define __attribute__regArg16(a,b,c,d) {
         __saveReg__
@@ -191,8 +193,7 @@ int main(int argc, char* argv[]) {
             mov bx, [b]
             mov cx, [c]
             mov dx, [d]
-        };
-        __popReg__}\n";
+        };\n";
 
     out << "#define __attribute__regArg32(a,b,c,d) {
         __saveReg32__
@@ -201,8 +202,7 @@ int main(int argc, char* argv[]) {
             mov ebx, [b]
             mov ecx, [c]
             mov edx, [d]
-        };
-        __popReg32__}\n";
+        };\n";
 
 
     out << "//Made with c--_26 by tipoCrutoi228(timoxa)\n";
