@@ -181,8 +181,20 @@ int main(int argc, char* argv[]) {
     out << "#define uint64_t qword\n";
     out << "#define __saveReg__ {asm{pusha};}\n";
     out << "#define __popReg__ {asm{popa};}\n";
+    out << "#define __saveReg32__ {asm{pushad};}\n";
+    out << "#define __popReg32__ {asm{popad};}\n";
 
     out << "#define __attribute__regArg16(a,b,c,d) {
+        __saveReg__
+        asm {
+            mov ax, [a]
+            mov bx, [b]
+            mov cx, [c]
+            mov dx, [d]
+        };
+        __popReg__}\n";
+
+    out << "#define __attribute__regArg32(a,b,c,d) {
         __saveReg__
         asm {
             mov ax, [a]
