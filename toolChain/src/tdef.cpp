@@ -177,6 +177,20 @@ int main(int argc, char* argv[]) {
     out << "#define __attribute__ {#define }\n";
     out << "#define __addr__ {#define }\n";
     out << "#define volatile\n";
+    out << "#define uint32_t {unsigned int}\n";
+    out << "#define uint64_t qword\n";
+    out << "#define __saveReg__ {asm{pusha};}\n";
+    out << "#define __popReg__ {asm{popa};}\n";
+
+    out << "#define __attribute__regArg16(a,b,c,d) {
+        __saveReg__
+        asm {
+            mov ax, [a]
+            mov bx, [b]
+            mov cx, [c]
+            mov dx, [d]
+        };
+
 
     out << "//Made with c--_26 by tipoCrutoi228(timoxa)\n";
     out << "\n";
