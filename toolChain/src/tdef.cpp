@@ -186,6 +186,15 @@ int main(int argc, char* argv[]) {
     out << "#define __argv16 {word}\n";
     out << "#define __argv32 {dword}\n";
 
+    out << "#define __reg32Arg1__ {EAX}\n";
+    out << "#define __reg32Arg2__ {EBX}\n";
+    out << "#define __reg32Arg3__ {ECX}\n";
+    out << "#define __reg32Arg4__ {EDX}\n";
+    out << "#define __reg16Arg1__ {AX}\n";
+    out << "#define __reg16Arg2__ {BX}\n";
+    out << "#define __reg16Arg3__ {CX}\n";
+    out << "#define __reg16Arg4__ {DX}\n";
+    
     out << "#define __attribute__regArg16(a,b,c,d) {
         __saveReg__
         asm {
