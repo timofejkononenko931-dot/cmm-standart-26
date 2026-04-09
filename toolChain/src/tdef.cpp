@@ -190,6 +190,7 @@ int main(int argc, char* argv[]) {
             mov cx, [c]
             mov dx, [d]
         };
+        __popReg__}\n";
 
 
     out << "//Made with c--_26 by tipoCrutoi228(timoxa)\n";
