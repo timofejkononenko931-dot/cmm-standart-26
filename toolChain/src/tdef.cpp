@@ -195,25 +195,27 @@ int main(int argc, char* argv[]) {
     out << "#define __reg16Arg3__ {CX}\n";
     out << "#define __reg16Arg4__ {DX}\n";
     
-    out << "#define __attribute__regArg16(a,b,c,d) {
-        __saveReg__
-        asm {
-            mov ax, [a]
-            mov bx, [b]
-            mov cx, [c]
-            mov dx, [d]
-        };\n";
+    out << R"(#define __attribute__regArg16(a,b,c,d) { 
+        __saveReg__ 
+        asm { 
+            mov ax, a 
+            mov bx, b 
+            mov cx, c 
+            mov dx, d 
+        }; 
+    })" << "\n";
 
-    out << "#define __attribute__regArg32(a,b,c,d) {
-        __saveReg32__
-        asm {
-            mov eax, [a]
-            mov ebx, [b]
-            mov ecx, [c]
-            mov edx, [d]
-        };\n";
+    out << R"(#define __attribute__regArg32(a,b,c,d) { 
+        __saveReg32__ 
+        asm { 
+            mov eax, a 
+            mov ebx, b 
+            mov ecx, c
+            mov edx, d 
+        }; 
+    })" << "\n";
 
-
+    
     out << "//Made with c--_26 by tipoCrutoi228(timoxa)\n";
     out << "\n";
     
