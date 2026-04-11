@@ -1,0 +1,12 @@
+Load MD2 flie: C--.MD2
+Load skins: C--.MD2
+Load coord texture: C--.MD2
+Load triangles: C--.MD2
+Load GlCommands: C--.MD2
+Load Frames: C--.MD2
+The END load md2: C--.MD2
+-------------------------------------------
+---Animation frames---
+anim: 2
+  all frames      firstFrame: 0      lastFrame: 1
+  frame      firstFrame: 0      lastFrame: 1
