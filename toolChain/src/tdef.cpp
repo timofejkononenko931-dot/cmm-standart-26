@@ -173,7 +173,7 @@ int main(int argc, char* argv[]) {
     out << "#define __CDECl cdecl\n";
     out << "#define __STDCAll stdcall\n";
     out << "#define __fastcall fastcall\n";
-    out << "#define __declspec(x) {_export}\n";
+    out << "#define __declspec(x) _export\n";
 
     out << "#pragma option IA\n";
     out << "#define volatile\n";
