@@ -19,7 +19,8 @@ void write(std::string outFilename) {
   ofstream out(outFilename);
 
   if (out.is_open()) {
-    out << "Format PE 64 Console\n";
+    out << "format PE64 Console\n";
+    out << "entry start\n";
 
     out.close();
   }
